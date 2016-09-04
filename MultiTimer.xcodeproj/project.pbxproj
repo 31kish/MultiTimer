@@ -12,6 +12,7 @@
 		E2056B631D79EAD000C8A801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2056B611D79EAD000C8A801 /* Main.storyboard */; };
 		E2056B651D79EAD000C8A801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2056B641D79EAD000C8A801 /* Assets.xcassets */; };
 		E2056B681D79EAD000C8A801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2056B661D79EAD000C8A801 /* LaunchScreen.storyboard */; };
+		E2A7D41A1D7C1D9E00BB1F59 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7D4191D7C1D9E00BB1F59 /* ModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E2056B641D79EAD000C8A801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2056B671D79EAD000C8A801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2056B691D79EAD000C8A801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2A7D4191D7C1D9E00BB1F59 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				E2056B5D1D79EAD000C8A801 /* AppDelegate.swift */,
 				E2056B5F1D79EAD000C8A801 /* ViewController.swift */,
+				E2A7D4191D7C1D9E00BB1F59 /* ModalViewController.swift */,
 				E2056B611D79EAD000C8A801 /* Main.storyboard */,
 				E2056B641D79EAD000C8A801 /* Assets.xcassets */,
 				E2056B661D79EAD000C8A801 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2056B601D79EAD000C8A801 /* ViewController.swift in Sources */,
+				E2A7D41A1D7C1D9E00BB1F59 /* ModalViewController.swift in Sources */,
 				E2056B5E1D79EAD000C8A801 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				E2056B6E1D79EAD000C8A801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
