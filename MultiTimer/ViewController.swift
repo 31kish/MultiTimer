@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ModalViewDelegate {
 
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
@@ -16,10 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var selectButton: UIButton!
     
+    var modalView: ModalViewController! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setEvent();
+        modalView = self.storyboard?.instantiateViewControllerWithIdentifier("modal") as! ModalViewController
+        modalView.delegate = self
     }
 
     // ボタンのイベントを定義する
@@ -48,10 +52,14 @@ class ViewController: UIViewController {
 
     func selectButtonTouched(sender: UIButton) {
         NSLog("SELECT")
-//        let modalView: ModalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("modal") as! ModalViewController
-//        self.presentViewController(modalView, animated: true, completion: nil)
+        self.presentViewController(modalView, animated: true, completion: nil)
     }
 
+    func selectedTime(minute: Int, second: Int) {
+        NSLog("DELEGATE")
+        minuteLabel.text = String(minute)
+        secondLabel.text = String(second)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
