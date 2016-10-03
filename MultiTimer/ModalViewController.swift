@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ModalViewDelegate {
-    func selectedTime(minute:Int, second:Int)
+    func selectedTime(_ minute:Int, second:Int)
 }
 
 class ModalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
@@ -29,7 +29,7 @@ class ModalViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     func setEvent() {
         closeButton.addTarget(self,
                               action: #selector(ModalViewController.closeButtonTouched(_:)),
-                              forControlEvents: UIControlEvents.TouchUpInside)
+                              for: UIControlEvents.touchUpInside)
     }
     
     func setTimePicker() {
@@ -40,10 +40,10 @@ class ModalViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let minuteLabel = UILabel()
         minuteLabel.text = "分"
         minuteLabel.sizeToFit()
-        minuteLabel.frame = CGRectMake(timePicker.bounds.width/2 - minuteLabel.bounds.width/2 - 50,
-                                       timePicker.bounds.height/2 - minuteLabel.bounds.height/2,
-                                       minuteLabel.bounds.width,
-                                       minuteLabel.bounds.height)
+        minuteLabel.frame = CGRect(x: timePicker.bounds.width/2 - minuteLabel.bounds.width/2 - 50,
+                                       y: timePicker.bounds.height/2 - minuteLabel.bounds.height/2,
+                                       width: minuteLabel.bounds.width,
+                                       height: minuteLabel.bounds.height)
         timePicker.addSubview(minuteLabel)
         
         
@@ -51,47 +51,47 @@ class ModalViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         let secoundLabel = UILabel()
         secoundLabel.text = "秒"
         secoundLabel.sizeToFit()
-        secoundLabel.frame = CGRectMake(timePicker.bounds.width*3/4 - secoundLabel.bounds.width/2 - 50,
-                                        timePicker.bounds.height/2 - secoundLabel.bounds.height/2,
-                                        secoundLabel.bounds.width,
-                                        secoundLabel.bounds.height)
+        secoundLabel.frame = CGRect(x: timePicker.bounds.width*3/4 - secoundLabel.bounds.width/2 - 50,
+                                        y: timePicker.bounds.height/2 - secoundLabel.bounds.height/2,
+                                        width: secoundLabel.bounds.width,
+                                        height: secoundLabel.bounds.height)
         timePicker.addSubview(secoundLabel)
     }
 
-    func closeButtonTouched(sender: UIButton) {
+    func closeButtonTouched(_ sender: UIButton) {
         NSLog("CLOSE")
-        NSLog("%d", timePicker.selectedRowInComponent(0))
-        NSLog("%d", timePicker.selectedRowInComponent(1))
+        NSLog("%d", timePicker.selectedRow(inComponent: 0))
+        NSLog("%d", timePicker.selectedRow(inComponent: 1))
 
-        self.delegate?.selectedTime(timePicker.selectedRowInComponent(0),
-                                   second: timePicker.selectedRowInComponent(1))
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.delegate?.selectedTime(timePicker.selectedRow(inComponent: 0),
+                                   second: timePicker.selectedRow(inComponent: 1))
+        self.dismiss(animated: true, completion: nil)
     }
     
     //コンポーネントの個数を返すメソッド
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return timeList.count
     }
     
     
     //コンポーネントに含まれるデータの個数を返すメソッド
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return timeList[component].count
     }
     
     
     //サイズを返すメソッド
-    func pickerView(pickerView: UIPickerView, widthForComponent component:Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component:Int) -> CGFloat {
         return timePicker.bounds.width * 1/4
         
     }
     
     
     //データを返すメソッド
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
         let pickerLabel = UILabel()
-        pickerLabel.textAlignment = NSTextAlignment.Left
+        pickerLabel.textAlignment = NSTextAlignment.left
         pickerLabel.text = String(timeList[component][row])
         
         return pickerLabel
